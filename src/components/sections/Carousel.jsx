@@ -1,5 +1,5 @@
-import  { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Carousel = () => {
@@ -104,7 +104,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white py-30 px-4">
+    <div className="bg-gray-900 text-white py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -131,7 +131,7 @@ const Carousel = () => {
               {newsItems.map((item, index) => (
                 <div
                   key={item.id}
-                  className="absolute w-80 md:w-96 h-80 md:h-96"
+                  className="absolute w-80 md:w-96 h-96 "
                   style={getSlideStyles(index)}
                 >
                   <Link
@@ -153,13 +153,13 @@ const Carousel = () => {
                         <div className="inline-block bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm font-medium mb-3">
                           {item.category}
                         </div>
-                        <h3 className="text-2xl font-bold text-white leading-tight mb-4 line-clamp-2">
+                        <h3 className="text-xl font-bold text-white leading-tight mb-4 line-clamp-2">
                           {item.title}
                         </h3>
                       </div>
 
-                      <div className="flex items-center font-semibold gap-2 text-gray-300 group-hover:text-blue-400 transition-colors">
-                        <span className="text-xl">Read article</span>
+                      <div className="flex items-center gap-2 text-gray-300 group-hover:text-blue-400 transition-colors">
+                        <span className="text-base">Read article</span>
                         <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                       </div>
                     </div>
@@ -167,16 +167,35 @@ const Carousel = () => {
                 </div>
               ))}
             </div>
+
+            {/* Navigation Buttons */}
+            <div className=" flex justify-between gap-4 mt-32 z-50 absolute w-full max-sm:hidden ">
+              <button
+                onClick={prevSlide}
+                disabled={isTransitioning}
+                className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-full border border-gray-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
+              >
+                <ArrowLeft className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                disabled={isTransitioning}
+                className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-full border border-gray-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
+              >
+                <ArrowRight className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
+              </button>
+            </div>
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center gap-4 mt-8">
+          <div className="justify-center gap-4 mt-8 max-sm:flex hidden  ">
             <button
               onClick={prevSlide}
               disabled={isTransitioning}
               className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-full border border-gray-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
             >
-              <ChevronLeft className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
+              <ArrowLeft className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
             </button>
 
             <button
@@ -184,7 +203,7 @@ const Carousel = () => {
               disabled={isTransitioning}
               className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-full border border-gray-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group"
             >
-              <ChevronRight className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
+              <ArrowRight className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors" />
             </button>
           </div>
 
