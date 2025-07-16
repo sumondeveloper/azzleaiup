@@ -104,7 +104,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white py-20 px-4">
+    <div className="bg-gray-900 text-white py-30 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -153,13 +153,13 @@ const Carousel = () => {
                         <div className="inline-block bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm font-medium mb-3">
                           {item.category}
                         </div>
-                        <h3 className="text-xl font-bold text-white leading-tight mb-4 line-clamp-2">
+                        <h3 className="text-2xl font-bold text-white leading-tight mb-4 line-clamp-2">
                           {item.title}
                         </h3>
                       </div>
 
-                      <div className="flex items-center gap-2 text-gray-300 group-hover:text-blue-400 transition-colors">
-                        <span className="text-base">Read article</span>
+                      <div className="flex items-center font-semibold gap-2 text-gray-300 group-hover:text-blue-400 transition-colors">
+                        <span className="text-xl">Read article</span>
                         <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                       </div>
                     </div>
